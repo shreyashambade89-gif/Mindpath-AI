@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Mindpath AI - free learning, practice and mock tests.">
+<title>Mindpath AI — Learn. Practice. Grow.</title>
+<link rel="icon" href="logo.svg"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="#home"><img src="logo.svg" alt="Mindpath AI logo"><span>Mindpath <b>AI</b></span></a>
+<button class="menu-btn" id="menuBtn">☰</button>
+<nav id="nav"><a href="#home">Home</a><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#mock">Mock Tests</a><a href="#papers">Question Papers</a><a href="#english">30-Day English</a><a href="#tutor">AI Tutor</a><a href="#dashboard">Dashboard</a></nav>
+<button class="theme-btn" id="themeBtn">☼</button><span class="student-pill">Student</span>
+</header>
+<main>
+<section id="home" class="hero section"><div class="hero-copy"><span class="eyebrow">FREE STUDY PLATFORM</span><h1>Learn smarter.<br><span>Practice with confidence.</span></h1><p>Learning, fresh questions, timed mock tests and daily English practice in one student-friendly place.</p><div class="hero-actions"><a class="btn primary" href="#practice">Start Practicing →</a><a class="btn secondary" href="#mock">Try a Mock Test</a></div><div class="mini-stats"><span><b>11+</b> Subjects</span><span><b>30</b> English days</span><span><b>30</b> mock questions</span></div></div>
+<div class="hero-card"><div class="hero-card-top"><span>Today's learning</span><strong id="heroStreak">0 day streak</strong></div><div class="progress-ring"><div><b id="heroXp">0</b><small>XP</small></div></div><h3>Keep your learning streak alive</h3><p>Answer a practice question or complete an English lesson to earn XP.</p><a href="#english" class="text-link">Continue English →</a></div></section>
+
+<section id="learn" class="section"><div class="section-head"><div><span class="eyebrow">LEARNING PATHS</span><h2>Learn by goal</h2></div><p>Choose a path and jump into practice.</p></div><div class="card-grid" id="courseGrid"></div></section>
+
+<section id="practice" class="section alt"><div class="section-head"><div><span class="eyebrow">DAILY PRACTICE</span><h2>Fresh questions</h2></div><p>Each new set is generated independently.</p></div>
+<div class="controls"><label>Subject<select id="subjectSelect"></select></label><label>Questions<select id="countSelect"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label><label>Level<select id="levelSelect"><option>Easy</option><option selected>Medium</option><option>Hard</option></select></label><label class="wide">Topic<input id="topicInput" placeholder="Optional topic"></label><button class="btn primary" id="generateSet">Generate fresh set</button></div>
+<div id="setMeta" class="chips"></div><div id="practiceList" class="question-list"></div></section>
+
+<section id="mock" class="section"><div class="section-head"><div><span class="eyebrow">FREE MOCK TESTS</span><h2>30 questions · 30 minutes</h2></div><p>Results are calculated only when you submit.</p></div><div id="testGrid" class="test-grid"></div><div id="testArea" class="hidden"></div></section>
+
+<section id="papers" class="section alt">
+<div class="section-head"><div><span class="eyebrow">QUESTION PAPER LIBRARY</span><h2>Previous papers & solved practice</h2></div><p>Filter by board, class, subject and year.</p></div>
+<div class="paper-note"><strong>Mindpath:</strong> Original solved practice is built into the site. Official previous-year paper lists are linked from the board source.</div>
+<div class="paper-controls">
+<select id="boardFilter"><option>All Boards</option><option>CBSE</option><option>Maharashtra SSC</option><option>ICSE</option></select>
+<select id="paperClass"><option>All Classes</option></select>
+<select id="paperSubject"><option>All Subjects</option></select>
+<select id="paperYear"><option>All Years</option></select>
+</div>
+<div class="paper-search"><input id="paperSearch" placeholder="Search paper, subject or year…"><span id="paperCount"></span></div>
+<div id="paperGrid" class="paper-grid"></div></section>
+
+<section id="english" class="section">
+<div class="section-head"><div><span class="eyebrow">30-DAY ENGLISH</span><h2>Choose your English practice</h2></div><p id="englishProgress">Day 1 / 30</p></div>
+<div class="english-banner"><div><strong id="engStreak">0 day streak</strong><p>Pick a skill and level. Your next lesson stays unlocked without forcing a random choice.</p></div><div class="bar"><i id="engBar"></i></div></div>
+<div class="english-controls">
+<label>Skill<select id="englishSkill"><option value="mixed">Mixed</option><option value="grammar">Grammar</option><option value="vocabulary">Vocabulary</option><option value="reading">Reading</option><option value="speaking">Speaking & conversation</option></select></label>
+<label>Level<select id="englishLevel"><option>Easy</option><option selected>Medium</option><option>Hard</option></select></label>
+<label>Day<select id="englishDay"></select></label>
+<button class="btn primary" id="startEnglish">Start selected lesson</button>
+</div>
+<div id="englishLesson" class="english-lesson hidden"></div>
+<div id="lessonGrid" class="lesson-grid"></div></section>
+
+<section id="tutor" class="section alt"><div class="section-head"><div><span class="eyebrow">STUDENT HELP</span><h2>Mindpath AI Study Assistant</h2></div><p>Multiple study tasks in one place — no paid account required for the built-in tools.</p></div>
+<div class="ai-layout"><aside class="ai-tools"><button class="ai-tool active" data-mode="explain">💡 Explain</button><button class="ai-tool" data-mode="solve">🧮 Solve</button><button class="ai-tool" data-mode="quiz">📝 Make a quiz</button><button class="ai-tool" data-mode="grammar">✍️ Grammar</button><button class="ai-tool" data-mode="translate">🌐 Translate</button><button class="ai-tool" data-mode="summary">📌 Summarize</button><button class="ai-tool" data-mode="plan">📅 Study plan</button><button class="ai-tool" data-mode="flashcards">🃏 Flashcards</button></aside>
+<div class="tutor"><div class="ai-status"><span class="ai-dot"></span><b id="aiModeLabel">Explain mode</b><span>Built-in study AI</span></div><div id="messages" class="messages"><div class="bubble bot"><b>Mindpath AI</b><p>Hi! Choose a task on the left, then ask your question. I can explain, calculate, create quizzes, help with grammar, translate, summarize, make plans and flashcards.</p></div></div><div class="prompts"><button data-prompt="Explain photosynthesis simply">Photosynthesis</button><button data-prompt="15% of 240">15% of 240</button><button data-prompt="Make a 5 question science quiz">Science quiz</button><button data-prompt="Correct this: She go to school">Grammar</button></div><div class="chat-row"><input id="chatInput" placeholder="Ask Mindpath AI anything for school..."><button class="btn primary" id="sendChat">Send</button></div></div></div></section>
+
+<section id="dashboard" class="section"><div class="section-head"><div><span class="eyebrow">YOUR PROGRESS</span><h2>Student dashboard</h2></div><button class="btn secondary" id="resetBtn">Reset local progress</button></div><div class="dash-grid"><div class="dash-card"><span>XP</span><strong id="xpTotal">0</strong></div><div class="dash-card"><span>Streak</span><strong id="dashStreak">0</strong></div><div class="dash-card"><span>Questions completed</span><strong id="completed">0</strong></div><div class="dash-card"><span>Mock tests</span><strong id="testsDone">0</strong></div></div><div class="week-card"><h3>Weekly activity</h3><div id="weekBars" class="week-bars"></div></div></section>
+</main>
+<div id="toast" class="toast"></div><script src="app.js"></script>
+</body></html>
